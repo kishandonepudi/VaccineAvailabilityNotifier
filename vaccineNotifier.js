@@ -15,7 +15,7 @@ To close the app, run: pm2 stop vaccineNotifier.js && pm2 delete vaccineNotifier
  */
 
 const PINCODE = process.env.PINCODE
-const EMAIL = process.env.EMAIL
+const TOEMAIL = process.env.TOEMAIL
 const AGE = process.env.AGE
 
 async function main(){
@@ -65,7 +65,7 @@ async function
 
 notifyMe(validSlots){
     let slotDetails = JSON.stringify(validSlots, null, '\t');
-    notifier.sendEmail(EMAIL, 'VACCINE AVAILABLE', slotDetails, (err, result) => {
+    notifier.sendEmail(TOEMAIL, 'VACCINE AVAILABLE', slotDetails, (err, result) => {
         if(err) {
             console.error({err});
         }
